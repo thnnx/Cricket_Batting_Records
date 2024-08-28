@@ -28,7 +28,7 @@ For my deep dive into the data analyst job market, I harnessed the power of seve
 - **Visual Studio Code:** My ide for executing my Python scripts.
 - **Power BI (Power Query)** Used for data transformation (power query) and interactive data visualization for deeper Data analysis insights.
 
-# Data Preparation and Cleanup
+# Data Preparation - Data Cleaning and Tranformation
 
 This section outlines the steps taken to prepare the data for analysis.
 
@@ -67,6 +67,105 @@ df[df['BF'].str.contains('-')==1]
 ## Replacing the uncommon values to NaN and assigning it to new dataframe name df_clean
 df_clean = df.replace('-', np.nan)
 df_clean[df_clean['Player'].isin(['ED Weekes (WI)', 'CL Walcott (WI)', 'Hon.FS Jackson (ENG)'])]
+```
+
+```python
+# Replace NaN values to 0 and check if there are still irregular data
+df_clean['Balls_Faced'] = df_clean['Balls_Faced'].fillna(0)
+df_clean[df_clean['BF'].str.contains('-')==True]
+df.isnull().any()
+```
+
+```python
+## Remove unnecessary character/string for the following columns
+
+# Column 'Highest_Inning_Score'
+df_clean['Highest_Inning_Score'] = df_clean['Highest_Inning_Score'].str.split(r'*').str[0]
+
+# Columns Balls_Faced
+df_clean['Balls_Faced'] = df_clean['Balls_Faced'].str.split(r'+').str[0]
+
+# Columns 4s and 6s
+df_clean['4s'] = df_clean['4s'].str.split(r'+').str[0]
+df_clean['6s'] = df_clean['6s'].str.split(r'+').str[0]
+```
+
+```python
+# Checking and showing duplicated and their duplicate values
+df_clean[df_clean['Player'].duplicated()==1]['Player'].to_list()
+df_clean[df_clean['Player'].isin(df_clean[df_clean['Player'].duplicated()==1]['Player'].to_list())].sort_values('Player', ascending=False)
+
+# Drop duplicate values 
+df_clean.drop_duplicates(inplace=True)
+```
+
+## Change of Data Types
+
+```python
+# Change of data type
+df_clean['Highest_Inning_Score'] = df_clean['Highest_Inning_Score'].astype('int')
+
+df_clean = df_clean.astype({'Balls_Faced': 'int', '4s':'int', '6s':'int', 'Rookie_Year':'int', 'Final_Year':'int'})
+```
+
+## Column Transformation
+```python
+## Splitting string (Span column) to create new columns Rookie year and Final year
+
+# Rookie year
+df_clean['Rookie_Year'] = df_clean['Span'].str[:4] 
+# alternative approach
+df_clean['Span'].str.split('-').str[0]
+
+# Final Year
+df_clean['Span'].str[5:9]
+# alternative approach
+df_clean['Final_Year'] = df_clean['Span'].str.split('-').str[1]
+
+# Checking string length on each element on column Span if there are more than 9 to see if the values on the column are consistent
+df_clean['Span'][df_clean['Span'].apply(len) > 9].count()
+```
+
+```python
+# Add new column of Career_Length
+df_clean['Career_Length'] = df_clean['Final_Year'] - df_clean['Rookie_Year']
+```
+
+```python
+#Dropping the Span column, no longer needed
+df_clean.drop(columns='Span', inplace=True)
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
 ```
 
 # The Analysis
