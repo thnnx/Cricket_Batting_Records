@@ -27,3 +27,29 @@ For my deep dive into the data analyst job market, I harnessed the power of seve
 - **Jupyter Notebooks:** The tool I used to run my Python scripts which let me easily include my notes and analysis.
 - **Visual Studio Code:** My ide for executing my Python scripts.
 - **Power BI (Power Query)** Used for data transformation (power query) and interactive data visualization for deeper Data analysis insights.
+
+# Data Preparation and Cleanup
+
+This section outlines the steps taken to prepare the data for analysis.
+
+## Import & Clean Up Data
+
+Importing necessary libraries. Importing dataset from a website and loading it in jupyter notebook, followed by initial data cleaning tasks to ensure data quality.
+
+Import the dataset using MS Excel thru Data ribbon using From Web menu transform data, using this link - [Highest Career Batting average](https://www.espncricinfo.com/records/highest-career-batting-average-282910) 
+
+
+```python
+# Importing Libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Loading Data
+dataset = load_dataset('lukebarousse/data_jobs')
+df = dataset['train'].to_pandas()
+
+# Data Cleanup
+df['job_posted_date'] = pd.to_datetime(df['job_posted_date'])
+df['job_skills'] = df['job_skills'].apply(lambda x: ast.literal_eval(x) if pd.notna(x) else x)
+```
