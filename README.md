@@ -32,13 +32,13 @@ For my deep dive into the data analyst job market, I harnessed the power of seve
 
 This section outlines the steps taken to prepare the data for analysis.
 
-## Import & Clean Up Data
+## Import Libraries and Dataset
 
 Importing necessary libraries. Importing dataset from a website and loading it in jupyter notebook, followed by initial data cleaning tasks to ensure data quality.
 
 Import the dataset using MS Excel thru Data ribbon using From Web menu transform data, using this link - [Highest Career Batting average](https://www.espncricinfo.com/records/highest-career-batting-average-282910) 
 
-![Excel_Import](dataimport_from_web.png)
+![Excel_Import](dataimport_from_web.PNG)
 
 ```python
 # Importing Libraries
@@ -46,11 +46,33 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Loading Data
-dataset = load_dataset('lukebarousse/data_jobs')
-df = dataset['train'].to_pandas()
-
-# Data Cleanup
-df['job_posted_date'] = pd.to_datetime(df['job_posted_date'])
-df['job_skills'] = df['job_skills'].apply(lambda x: ast.literal_eval(x) if pd.notna(x) else x)
+# Reading and saving the data to df variable dataframe type
+df = pd.read_excel(r'\Cricket_Data.xlsx', skiprows=1)
 ```
+
+## Data Cleanup
+
+```python
+## Checking for dataframe infos like how many are non-null values, data type, index and column names, total rows and columns
+df.info()
+df.isnull().any()
+```
+
+```python
+# Checking for unusual or uncommon values identified during initial dataset checking
+df[df['BF'].str.contains('-')==1]
+```
+
+```python
+## Replacing the uncommon values to NaN and assigning it to new dataframe name df_clean
+df_clean = df.replace('-', np.nan)
+df_clean[df_clean['Player'].isin(['ED Weekes (WI)', 'CL Walcott (WI)', 'Hon.FS Jackson (ENG)'])]
+```
+
+# The Analysis
+
+Each Jupyter notebook for this project aimed at investigating specific aspects of the data job market. Here’s how I approached each question:
+
+## 1. What are the most demanded skills for the top 3 most popular data roles?
+
+To find the most demanded skills for the top 3 most popular data roles. I filtered out those positions by which ones were the most popular, and got the top 5 skills for these top 3 roles. This query highlights the most popular job titles and their top skills, showing which skills I should pay attention to depending on the role I'm targeting. 
