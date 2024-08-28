@@ -38,6 +38,7 @@ Importing necessary libraries. Importing dataset from a website and loading it i
 
 Import the dataset using MS Excel thru Data ribbon using From Web menu transform data, using this link - [Highest Career Batting average](https://www.espncricinfo.com/records/highest-career-batting-average-282910) 
 
+![Excel_Import](dataimport_from_web.png)
 
 ```python
 # Importing Libraries
