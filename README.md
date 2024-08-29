@@ -167,6 +167,11 @@ plt.ylabel('Number of Matches')
 ```
 ![Matches per player](matches_per_player.png)
 
+## Saving the dataframe to a new csv file for future reference 
+```python
+# Save new cleaned dataframe to a csv file
+df_clean.to_csv('Cricket_clean_data.csv', index=False)
+```
 
 # Answering the Questions
 
@@ -241,10 +246,9 @@ ENG	    12.538462	21.230769	4.307692
 ZIM	    12.000000	27.000000	5.000000
 SA	    9.800000	20.200000	3.400000
 ```
+# Power BI Visualization
 
-```python
-
-```
+![PowerBI_Visual](pbi_data_visualization.png)
 
 # The Analysis
 
