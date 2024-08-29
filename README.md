@@ -1,7 +1,7 @@
 # Overview
-This project was created for my preparation on focusing on data analyst roles. This helped me practice and apply all the skills I've learned from Data Analysis courses and tutorials. The project will focus on Data Cleaning using Python and Data Transformation and Visualization using Power BI.
+This project was created for my preparation on focusing on data analyst roles. This will help me practice and apply all the skills I've learned from Data Analysis courses and tutorials. The project will focus on data cleaning, transformation and visualization using Python, Power BI and other tools.
 
-The data sourced from sports website [ESPN Cricket section](https://www.espncricinfo.com/records/highest-career-batting-average-282910) and tutorial from a youtube channel (Ryan & Matt Data Science) on data analysis. Data contains a records of highest career batting average in history. It consists of players name and their country, years and matches played, and personal cricket records.
+The data was sourced from sports website [ESPN Cricket section](https://www.espncricinfo.com/records/highest-career-batting-average-282910). It contains records of highest career batting average in history of Cricket. It consists of players name and their country, years and matches played, and personal cricket records.
 
 Through a series of Python scripts, I explore key questions such as average career length of the player, batting strike rate, players who played the most and number of players per country
 
@@ -28,18 +28,20 @@ For my deep dive into the data analyst job market, I harnessed the power of seve
 - **Visual Studio Code:** My ide for executing my Python scripts.
 - **Power BI (Power Query)** Used for data transformation (power query) and interactive data visualization for deeper Data analysis insights.
 
-# Data Preparation - Data Cleaning and Tranformation
+# Data Preparation - Cleaning and Transformation
 
 This section outlines the steps taken to prepare the data for analysis.
 
-## Import Libraries and Dataset
+## Importing Dataset
 
-Importing necessary libraries. Importing dataset from a website and loading it in jupyter notebook, followed by initial data cleaning tasks to ensure data quality.
+Importing dataset from a website and loading it in jupyter notebook, followed by initial data cleaning tasks to ensure data quality.
 
-Import the dataset using MS Excel thru Data ribbon using From Web menu transform data, using this link - [Highest Career Batting average](https://www.espncricinfo.com/records/highest-career-batting-average-282910) 
+Import the dataset using MS Excel thru From Web menu transform data using the link - [Highest Career Batting average](https://www.espncricinfo.com/records/highest-career-batting-average-282910) 
 
 ![Excel_Import](dataimport_from_web.PNG)
 
+## Importing Dataset
+Importing necessary libraries. 
 ```python
 # Importing Libraries
 import pandas as pd
@@ -149,6 +151,21 @@ df_clean['Country'] = df_clean['Player'].str.extract(r'\((.*?)\)')
 # Extracting player name
 df_clean['Player'] = df_clean['Player'].str.split(r'(').str[0]
 ```
+### Plotting dataframe using Matplotlib in Python
+
+```python
+# Players per country
+df_country_player.plot(kind='barh', x='Country', y='count')
+```
+![Players per country](players_per_country.png)
+
+```python
+# Matches per player
+df_clean[['Player', 'Matches']].head(10).sort_values('Matches', ascending=False).set_index('Player').plot(kind='bar')
+plt.xticks(rotation=45, ha='right')
+plt.ylabel('Number of Matches')
+```
+![Matches per player](matches_per_player.png)
 
 
 # Answering the Questions
