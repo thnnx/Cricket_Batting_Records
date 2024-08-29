@@ -230,21 +230,21 @@ df_clean.groupby('Country')[[100,50,0]].mean().sort_values(by=[100], ascending=F
 ```
 #### Output:
 ```python
-	        100	    50	    0
+	        	100	    50	    0
 Country			
-ICC/SA	36.000000	48.000000	13.500000
-ICC/WI	34.000000	48.000000	17.000000
-ICC/IND	29.500000	47.500000	12.000000
-IND	    29.500000	36.500000	10.750000
-SL	    28.666667	44.000000	12.333333
-ICC/PAK	25.000000	46.000000	15.000000
-AUS	    20.625000	28.375000	8.562500
-NZ	    18.500000	22.000000	6.000000
-PAK	    17.600000	23.600000	7.800000
-WI	    16.625000	25.625000	7.250000
-ENG	    12.538462	21.230769	4.307692
-ZIM	    12.000000	27.000000	5.000000
-SA	    9.800000	20.200000	3.400000
+ICC/SA		36.000000	48.000000	13.500000
+ICC/WI		34.000000	48.000000	17.000000
+ICC/IND		29.500000	47.500000	12.000000
+IND	    	29.500000	36.500000	10.750000
+SL	    	28.666667	44.000000	12.333333
+ICC/PAK		25.000000	46.000000	15.000000
+AUS	    	20.625000	28.375000	8.562500
+NZ	    	18.500000	22.000000	6.000000
+PAK	    	17.600000	23.600000	7.800000
+WI	    	16.625000	25.625000	7.250000
+ENG	    	12.538462	21.230769	4.307692
+ZIM	   	12.000000	27.000000	5.000000
+SA	  	9.800000	20.200000	3.400000
 ```
 # Power BI Visualization
 
@@ -253,8 +253,24 @@ For interactive Power BI visualization click this link - [Cricket Batting PBI](h
 
 # Insights
 
-Each Jupyter notebook for this project aimed at investigating specific aspects of the data job market. Here’s how I approached each question:
+This project provided several general insights into the history data of highest cricket batting average:
+- The average career year length of a cricketer is 13 years.
+- Australia and England are the top two countries that had most of cricketer players.
+- SR Tendulkar is one of the best cricketer as he always on atleast top 5 on every category.
 
-## 1. What are the most demanded skills for the top 3 most popular data roles?
+# Learning and Challenges
 
-To find the most demanded skills for the top 3 most popular data roles. I filtered out those positions by which ones were the most popular, and got the top 5 skills for these top 3 roles. This query highlights the most popular job titles and their top skills, showing which skills I should pay attention to depending on the role I'm targeting. 
+Throughout this project, I deepened my understanding of the data analysis on a raw dataset and enhanced my technical skills in Python, especially in data manipulation and visualization. Here are a few specific things I learned:
+
+- **Advanced Python Usage**: Utilizing libraries such as Pandas for data manipulation, Numpy and Matplotlib for data visualization, and other libraries helped me perform complex data analysis tasks more efficiently.
+- **Data Cleaning Importance**: I learned that thorough data cleaning and preparation are crucial before any analysis can be conducted, ensuring the accuracy of insights derived from the data.
+
+This project was not without its challenges, but it provided good learning opportunities:
+
+- **Data Inconsistencies**: Handling missing or inconsistent data entries requires careful consideration and thorough data-cleaning techniques to ensure the integrity of the analysis.
+- **Data Visualization**: Designing effective visual representations of complex datasets was challenging but critical for conveying insights clearly and compellingly.
+
+#
+<br></br>
+
+
