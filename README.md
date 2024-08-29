@@ -248,9 +248,10 @@ SA	    9.800000	20.200000	3.400000
 ```
 # Power BI Visualization
 
-![PowerBI_Visual](pbi_data_visualization.png)
+For interactive Power BI visualization click this link - [Cricket Batting PBI](https://app.powerbi.com/reportEmbed?reportId=bd2b0d59-f314-4340-ba46-2703fc5df40a&autoAuth=true&ctid=a4e78b81-874a-4832-88f0-12bd163108f4)
+![PowerBI_Visual](pbi_data_visualization.PNG)
 
-# The Analysis
+# Insights
 
 Each Jupyter notebook for this project aimed at investigating specific aspects of the data job market. Here’s how I approached each question:
 
