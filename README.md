@@ -248,7 +248,7 @@ SA	  	9.800000	20.200000	3.400000
 ```
 # Power BI Visualization
 
-For interactive Power BI visualization click this link - [Cricket Batting PBI](https://app.powerbi.com/reportEmbed?reportId=bd2b0d59-f314-4340-ba46-2703fc5df40a&autoAuth=true&ctid=a4e78b81-874a-4832-88f0-12bd163108f4)
+For interactive Power BI visualization click this link - [Cricket Batting PBI](https://app.powerbi.com/view?r=eyJrIjoiYTFmNDkzMjItNGU1NS00NWNhLTg3MTUtMWRlY2RjODU3ZWFmIiwidCI6ImE0ZTc4YjgxLTg3NGEtNDgzMi04OGYwLTEyYmQxNjMxMDhmNCIsImMiOjEwfQ%3D%3D)
 ![PowerBI_Visual](pbi_data_visualization.PNG)
 
 # Insights
